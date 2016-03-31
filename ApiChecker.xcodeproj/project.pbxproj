@@ -30,6 +30,7 @@
 		D2D2244F1CAD241800F4ABA9 /* ParseEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseEngine.swift; sourceTree = "<group>"; };
 		D2D224511CAD244F00F4ABA9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D2D224531CAD267000F4ABA9 /* Meta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
+		D2D224551CAD27C500F4ABA9 /* ApiChecker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApiChecker-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 		D2D2244E1CABD9A700F4ABA9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D2D224551CAD27C500F4ABA9 /* ApiChecker-Bridging-Header.h */,
 				D2D2243D1CABD8B100F4ABA9 /* Main.storyboard */,
 				D2D224401CABD8B100F4ABA9 /* Assets.xcassets */,
 				D2D224421CABD8B100F4ABA9 /* LaunchScreen.storyboard */,
@@ -363,10 +365,13 @@
 			baseConfigurationReference = 0A91DAF1490DEE00C94324A6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ApiChecker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FAYA.ApiChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ApiChecker/ApiChecker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -375,10 +380,12 @@
 			baseConfigurationReference = 0C27A003066FACAEEB1F8DBE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ApiChecker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FAYA.ApiChecker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ApiChecker/ApiChecker-Bridging-Header.h";
 			};
 			name = Release;
 		};
