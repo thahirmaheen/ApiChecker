@@ -18,20 +18,7 @@ extension NSMutableData {
     }
 }
 
-//let baseUrl = "http://oneapp.fayastage.com"
-
 class ParseEngine: AFHTTPSessionManager {
-    
-    var baseUrl: String {
-        return Model.sharedModel.baseURL
-    }
-    
-    class var sharedEngine: ParseEngine {
-        struct Singleton {
-            static let sharedEngine = ParseEngine(baseURL: NSURL(string: Model.sharedModel.baseURL), sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        }
-        return Singleton.sharedEngine
-    }
     
     override init(baseURL url: NSURL!, sessionConfiguration configuration: NSURLSessionConfiguration!) {
         super.init(baseURL: url, sessionConfiguration: configuration)
@@ -39,9 +26,6 @@ class ParseEngine: AFHTTPSessionManager {
         // set serializers
         requestSerializer = AFJSONRequestSerializer()
         responseSerializer = AFJSONResponseSerializer()
-        
-        // set basic authorization
-        setBasicAuthorization()
         
         // start network reachability checks
         AFNetworkReachabilityManager.sharedManager().startMonitoring()
@@ -52,7 +36,7 @@ class ParseEngine: AFHTTPSessionManager {
     }
     
     let networkReachabilityError = NSError(domain: "ATC.Reachability", code: 100, userInfo: ["title": "alert_title_network_unreachable", "message": "alert_message_network_unreachable"])
-    
+        
     func setBasicAuthorization() {
         requestSerializer.setAuthorizationHeaderFieldWithUsername(Model.sharedModel.basicUserName, password: Model.sharedModel.basicPassword)
     }
@@ -320,7 +304,7 @@ class ParseEngine: AFHTTPSessionManager {
         
         if !AFNetworkReachabilityManager.sharedManager().reachable {
             
-            UIAlertView(title: "alert_title_network_unreachable", message: "alert_message_network_unreachable", delegate: nil, cancelButtonTitle: "cancel").show()
+//            UIAlertView(title: "alert_title_network_unreachable", message: "alert_message_network_unreachable", delegate: nil, cancelButtonTitle: "cancel").show()
             
             // no network
             print("no network connection")
