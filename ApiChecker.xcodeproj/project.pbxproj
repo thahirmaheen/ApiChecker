@@ -15,6 +15,11 @@
 		D2D224501CAD241800F4ABA9 /* ParseEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2244F1CAD241800F4ABA9 /* ParseEngine.swift */; };
 		D2D224521CAD244F00F4ABA9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D224511CAD244F00F4ABA9 /* Model.swift */; };
 		D2D224541CAD267000F4ABA9 /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D224531CAD267000F4ABA9 /* Meta.swift */; };
+		D2D2245C1CAD42BA00F4ABA9 /* BaseUrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2245B1CAD42BA00F4ABA9 /* BaseUrlViewController.swift */; };
+		D2D2245E1CAD47E300F4ABA9 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2245D1CAD47E300F4ABA9 /* AuthorizationViewController.swift */; };
+		D2D224601CAE9E1400F4ABA9 /* InputsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2245F1CAE9E1400F4ABA9 /* InputsViewController.swift */; };
+		D2D224621CAEA05F00F4ABA9 /* MethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D224611CAEA05F00F4ABA9 /* MethodsViewController.swift */; };
+		D2D224641CAEA71600F4ABA9 /* OutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D224631CAEA71600F4ABA9 /* OutputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		D2D224511CAD244F00F4ABA9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D2D224531CAD267000F4ABA9 /* Meta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
 		D2D224551CAD27C500F4ABA9 /* ApiChecker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApiChecker-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2D2245B1CAD42BA00F4ABA9 /* BaseUrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUrlViewController.swift; sourceTree = "<group>"; };
+		D2D2245D1CAD47E300F4ABA9 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		D2D2245F1CAE9E1400F4ABA9 /* InputsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputsViewController.swift; sourceTree = "<group>"; };
+		D2D224611CAEA05F00F4ABA9 /* MethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodsViewController.swift; sourceTree = "<group>"; };
+		D2D224631CAEA71600F4ABA9 /* OutputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,11 @@
 		D2D2244D1CABD98200F4ABA9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2D2245D1CAD47E300F4ABA9 /* AuthorizationViewController.swift */,
+				D2D2245B1CAD42BA00F4ABA9 /* BaseUrlViewController.swift */,
+				D2D224611CAEA05F00F4ABA9 /* MethodsViewController.swift */,
+				D2D2245F1CAE9E1400F4ABA9 /* InputsViewController.swift */,
+				D2D224631CAEA71600F4ABA9 /* OutputViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -250,6 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D2245E1CAD47E300F4ABA9 /* AuthorizationViewController.swift in Sources */,
+				D2D224621CAEA05F00F4ABA9 /* MethodsViewController.swift in Sources */,
+				D2D2245C1CAD42BA00F4ABA9 /* BaseUrlViewController.swift in Sources */,
+				D2D224601CAE9E1400F4ABA9 /* InputsViewController.swift in Sources */,
+				D2D224641CAEA71600F4ABA9 /* OutputViewController.swift in Sources */,
 				D2D224541CAD267000F4ABA9 /* Meta.swift in Sources */,
 				D2D224521CAD244F00F4ABA9 /* Model.swift in Sources */,
 				D2D2243A1CABD8B100F4ABA9 /* AppDelegate.swift in Sources */,
