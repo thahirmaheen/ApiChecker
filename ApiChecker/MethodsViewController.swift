@@ -15,6 +15,7 @@ class MethodsViewController: UITableViewController {
             static let GetSegue = "kGetSegue"
             static let PostSegue = "kPostSegue"
             static let PatchSegue = "kPatchSegue"
+            static let MultipartPostSegue = "kMultipartPostSegue"
         }
     }
     
@@ -24,6 +25,7 @@ class MethodsViewController: UITableViewController {
         case Storyboard.Segues.GetSegue: inputsViewController.method = .GET
         case Storyboard.Segues.PostSegue: inputsViewController.method = .POST
         case Storyboard.Segues.PatchSegue: inputsViewController.method = .PATCH
+        case Storyboard.Segues.MultipartPostSegue: inputsViewController.method = .MULTIPARTPOST
         default: inputsViewController.method = .GET
         }
     }

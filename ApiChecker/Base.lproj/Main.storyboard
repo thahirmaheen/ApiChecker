@@ -221,6 +221,26 @@
                                             <segue destination="CRX-ti-Iwv" kind="show" identifier="kPatchSegue" id="HaI-IT-YoJ"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="T8V-PI-CAf" style="IBUITableViewCellStyleDefault" id="kgt-ml-vDJ">
+                                        <rect key="frame" x="0.0" y="246" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kgt-ml-vDJ" id="0DP-L2-oAq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Login (multipart post)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T8V-PI-CAf">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="CRX-ti-Iwv" kind="show" identifier="kMultipartPostSegue" id="ccn-SA-QbI"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -279,11 +299,17 @@
                                             <rect key="frame" x="15" y="0.0" width="180" height="43"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="WM8-bu-yHl" id="hbg-wf-bRS"/>
+                                            </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sXU-hu-ITO">
                                             <rect key="frame" x="195" y="0.0" width="180" height="43"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="WM8-bu-yHl" id="Qtc-Di-Cvv"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -298,6 +324,10 @@
                                         <constraint firstAttribute="bottom" secondItem="sXU-hu-ITO" secondAttribute="bottom" id="tWh-Z5-bMT"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textFieldKey" destination="25w-XO-eJN" id="PDg-IL-P8G"/>
+                                    <outlet property="textFieldValue" destination="sXU-hu-ITO" id="zsv-Lt-rUT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -430,6 +460,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1r8-nl-yk2"/>
+        <segue reference="ccn-SA-QbI"/>
     </inferredMetricsTieBreakers>
 </document>

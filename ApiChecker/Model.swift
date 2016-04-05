@@ -86,6 +86,15 @@ class Model {
                 
                 completionHandler(output: data?.description ?? "")
             }
+        case .MULTIPARTPOST:
+            parseEngine.postMultiPartData(keyPath, params: params){ (data, error) in
+                if error != nil {
+                    completionHandler(output: "API Failed with error \(error)")
+                    return
+                }
+                
+                completionHandler(output: data?.description ?? "")
+            }
         }
     }
     
