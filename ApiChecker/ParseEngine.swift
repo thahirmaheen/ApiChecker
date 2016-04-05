@@ -146,7 +146,7 @@ class ParseEngine: AFHTTPSessionManager {
         })
     }
     
-    func postMultiPartData(keyPath: String = "", params: [String: String] = [:], isBasicAuthorization: Bool = false, shouldShowHUD: Bool = false, completionHandler:(data: NSDictionary?, error: NSError?) -> ()) {
+    func postMultiPartData(keyPath: String = "", params: [String: String] = [:], isBasicAuthorization: Bool = true, shouldShowHUD: Bool = false, completionHandler:(data: NSDictionary?, error: NSError?) -> ()) {
         
         if !AFNetworkReachabilityManager.sharedManager().reachable {
             
