@@ -24,6 +24,10 @@ class Parameter: Hashable, Equatable {
         return key.isNonEmpty && value.isNonEmpty
     }
     
+    var isDeletable: Bool {
+        return key.isNonEmpty || value.isNonEmpty
+    }
+    
     var description: String {
         return key + ": " + value
     }
@@ -161,7 +165,7 @@ class InputsViewController: UITableViewController, KeyPathCellDelegate, Paramete
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return (tableView.cellForRowAtIndexPath(indexPath) as? ParameterCell)?.parameter.isValid ?? false
+        return ((tableView.cellForRowAtIndexPath(indexPath) as? ParameterCell)?.parameter.isDeletable ?? false) && (arrayParameterCells.count > 1)
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -214,7 +218,7 @@ class InputsViewController: UITableViewController, KeyPathCellDelegate, Paramete
         view.endEditing(true)
         
         var dictParams = [String: String]()
-        for parameter in parameters {
+        for parameter in parameters.filter({ $0.isValid }) {
             dictParams[parameter.key] = parameter.value
         }
         
