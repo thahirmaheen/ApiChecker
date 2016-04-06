@@ -57,6 +57,24 @@ class Model {
         }
     }
     
+    var keyPath: String {
+        get {
+            return NSUserDefaults.standardUserDefaults().valueForKey(UserDefaults.KeyPath) as? String ?? ""
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: UserDefaults.KeyPath)
+        }
+    }
+    
+    var parameters: [String: String] {
+        get {
+            return NSUserDefaults.standardUserDefaults().valueForKey(UserDefaults.Parameters) as? [String: String] ?? [:]
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: UserDefaults.Parameters)
+        }
+    }
+    
     func processAPI(method: Method, keyPath: String, params: [String: String], completionHandler: (output: String) -> Void) {
         switch method {
         case .GET:
@@ -103,5 +121,7 @@ class Model {
         static let BasicUserName = "kBasicUserName"
         static let BasicPassword = "kBasicPassword"
         static let BearerToken = "kBearerToken"
+        static let KeyPath = "kKeyPath"
+        static let Parameters = "kParameters"
      }
 }

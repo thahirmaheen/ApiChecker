@@ -287,6 +287,9 @@
                                         <constraint firstItem="Es5-W1-Tkj" firstAttribute="top" secondItem="MeG-Ae-r9s" secondAttribute="top" id="Pm1-HE-hfA"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textFieldKeyPath" destination="Es5-W1-Tkj" id="yHN-gz-J7e"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kParameterCell" id="WM8-bu-yHl" customClass="ParameterCell" customModule="ApiChecker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="158" width="375" height="44"/>

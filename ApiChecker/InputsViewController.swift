@@ -31,6 +31,11 @@ class Parameter: Hashable, Equatable {
     var description: String {
         return key + ": " + value
     }
+    
+    init(key: String = "", value: String = "") {
+        self.key = key
+        self.value = value
+    }
 }
 
 func ==(lhs: Parameter, rhs: Parameter) -> Bool {
@@ -44,6 +49,14 @@ protocol KeyPathCellDelegate {
 class KeyPathCell: UITableViewCell, UITextFieldDelegate {
     
     var keyPathCellDelegate: KeyPathCellDelegate?
+    
+    var keyPath: String = "" {
+        didSet {
+            textFieldKeyPath?.text = keyPath
+        }
+    }
+    
+    @IBOutlet weak var textFieldKeyPath: UITextField!
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -111,10 +124,26 @@ class InputsViewController: UITableViewController, KeyPathCellDelegate, Paramete
     
     var arrayParameterCells = [ParameterCell]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        keyPath = Model.sharedModel.keyPath
+        
+        buildParameters()
+        
+        buildCells()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         buildCells()
+    }
+    
+    func buildParameters() {
+        for (key, value) in Model.sharedModel.parameters {
+            parameters.insert(Parameter(key: key, value: value))
+        }
     }
     
     func buildCells() {
@@ -155,6 +184,7 @@ class InputsViewController: UITableViewController, KeyPathCellDelegate, Paramete
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellIdentifiers.KeyPathCell, forIndexPath: indexPath) as! KeyPathCell
             cell.keyPathCellDelegate = self
+            cell.keyPath = keyPath
             return cell
         }
         return arrayParameterCells[indexPath.row]
@@ -221,6 +251,10 @@ class InputsViewController: UITableViewController, KeyPathCellDelegate, Paramete
         for parameter in parameters.filter({ $0.isValid }) {
             dictParams[parameter.key] = parameter.value
         }
+        
+        // save history
+        Model.sharedModel.keyPath = keyPath
+        Model.sharedModel.parameters = dictParams
         
         Model.sharedModel.processAPI(method, keyPath: keyPath, params: dictParams) { output in
             self.performSegueWithIdentifier(Storyboard.Segues.ProcessSegue, sender: output)
