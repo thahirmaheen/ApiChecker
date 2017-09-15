@@ -23,5 +23,10 @@ class Model {
     var basicUserName = ""
     var basicPassword = ""
     
-    var bearerToken = ""
+    struct UserDefaults {
+        static let BaseUrl = "kBaseUrl"
+        static let BasicUserName = "kBasicUserName"
+        static let BasicPassword = "kBasicPassword"
+        static let BearerToken = "kBearerToken"
+     }
 }
