@@ -17,11 +17,77 @@ class Model {
         
         return Singleton.instance
     }
-
-    var baseURL = ""
     
-    var basicUserName = ""
-    var basicPassword = ""
+    var parseEngine = ParseEngine(baseURL: NSURL(string: "http://oneapp.fayastage.com"))
+
+    var baseURL: String {
+        get {
+            return NSUserDefaults.standardUserDefaults().valueForKey(UserDefaults.BaseUrl) as? String ?? ""
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: UserDefaults.BaseUrl)
+            parseEngine = ParseEngine(baseURL: NSURL(string: newValue))
+        }
+    }
+    
+    var basicUserName: String {
+        get {
+            return NSUserDefaults.standardUserDefaults().valueForKey(UserDefaults.BasicUserName) as? String ?? ""
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: UserDefaults.BasicUserName)
+        }
+    }
+    
+    var basicPassword: String {
+        get {
+            return NSUserDefaults.standardUserDefaults().valueForKey(UserDefaults.BasicPassword) as? String ?? ""
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: UserDefaults.BasicPassword)
+        }
+    }
+    
+    var bearerToken: String {
+        get {
+            return NSUserDefaults.standardUserDefaults().valueForKey(UserDefaults.BearerToken) as? String ?? ""
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: UserDefaults.BearerToken)
+        }
+    }
+    
+    func processAPI(method: Method, keyPath: String, params: [String: String], completionHandler: (output: String) -> Void) {
+        switch method {
+        case .GET:
+            parseEngine.fetchData(keyPath, params: params, shouldShowHUD: true) { (data, error) in
+                if error != nil {
+                    completionHandler(output: "API Failed with error \(error)")
+                    return
+                }
+                
+                completionHandler(output: data?.description ?? "")
+            }
+        case .POST:
+            parseEngine.postData(keyPath, params: params, shouldShowHUD: true) { (data, error) in
+                if error != nil {
+                    completionHandler(output: "API Failed with error \(error)")
+                    return
+                }
+                
+                completionHandler(output: data?.description ?? "")
+            }
+        case .PATCH:
+            parseEngine.patchData(keyPath, params: params, shouldShowHUD: true) { (data, error) in
+                if error != nil {
+                    completionHandler(output: "API Failed with error \(error)")
+                    return
+                }
+                
+                completionHandler(output: data?.description ?? "")
+            }
+        }
+    }
     
     struct UserDefaults {
         static let BaseUrl = "kBaseUrl"
